@@ -1,9 +1,18 @@
-.container {
+/* .coin_cointainer {
+    display: flex;
+} */
+
+.coin_images {
     display: flex;
 }
    
-   .choice_div {
+.choice_divs {
+    display: flex;
     flex-direction: column;
+}
+
+.choice_divs input {
+    justify-content: center;
 }
 
 /* .coin_images {
