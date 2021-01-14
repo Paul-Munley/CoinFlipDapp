@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Coin Flip</title>
+    <link rel="shortcut icon" href="#">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./web3.min.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Coin Flip Game</h1>
+        <p class="lead">Flip a coin to make some coin!</p>
+      </div>
+    </div>
+    <div class="container">
+      <div>
+        <h2>Place Your Bet</h2>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="bet_input" placeholder="ETH" >
+        </div>
+        <button type="button" id="add_bet_button" class="btn btn-primary">Place Bet</button>
+      </div>
+      <div>
+        <h2>Get Current Bet</h2>
+        <div>
+          Current Bet Amount: <span id="current_bet_output"></span>
+        </div>
+        <br>
+        <button type="button" id="get_current_bet_btn" class="btn btn-primary">Current Bet</button>
+      </div>
+      <div class="coin_container">
+        <h2>Flip The Coin!</h2>
+        <div class="coin_images">
+          <div class="choice_divs">
+            <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Standard-Back-1_480x480.jpg?v=1526294144">
+            <input type="radio" id="heads_radio">
+          </div>
+          <div class="choice_divs">
+            <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Front-1_45d663e2-881e-4980-b87e-634e7439ca82_480x480.jpg?v=1526294145">
+            <input type="radio" id="tails_radio">
+          </div>
+        </div>
+        <button type="button" id="get_data_button" class="btn btn-primary">Flip Coin</button>
+      </div>
+    </div>
+
+
+  </body>
+</html>

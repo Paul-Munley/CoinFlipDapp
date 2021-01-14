@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+}
+   
+   .choice_div {
+    flex-direction: column;
+}
+
+/* .coin_images {
+    /* display: flex; */
+    /* flex: 0 0 auto; */
+
+/* .coin_container {
+    display: flex;
+}
+
+.choice_divs {
+    display: flex;
+    flex-direction: column;
+} */
