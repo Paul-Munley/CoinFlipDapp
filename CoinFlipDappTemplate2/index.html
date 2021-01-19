@@ -26,6 +26,13 @@
     </div>
     <div class="container">
       <div>
+        <h2>Add Balance To Contract</h2>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="add_balance_input" placeholder="ETH">
+        </div>
+          <button type="button" id="add_balance_button" class="btn btn-primary">Add To Balance</button>
+      </div>
+      <div>
         <h2>Place Your Bet</h2>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="bet_input" placeholder="ETH" >
@@ -35,25 +42,30 @@
       <div>
         <h2>Get Current Bet</h2>
         <div>
-          Current Bet Amount: <span id="current_bet_output"></span>
+          Current Bet Amount: <span id="current_bet_output"></span> ETH
         </div>
         <br>
         <button type="button" id="get_current_bet_btn" class="btn btn-primary">Current Bet</button>
       </div>
-      <div class="coin_container">
+      <div>
+        <h2>Running Balance</h2>
+        <div>
+        Current Balance Amount: <span id="running_balance_output"></span>
+        </div>
+        <button type="button" id="get_current_balance_btn" class="btn btn-primary">Get Current Balance</button>
+      </div>
         <h2>Flip The Coin!</h2>
         <div class="coin_images">
           <div class="choice_divs">
             <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Standard-Back-1_480x480.jpg?v=1526294144">
-            <input type="radio" id="heads_radio" name="answer">
+            <input type="radio" class="radio_btn" id="heads_radio_choice" name="answer" value= 0>
           </div>
           <div class="choice_divs">
             <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Front-1_45d663e2-881e-4980-b87e-634e7439ca82_480x480.jpg?v=1526294145">
-            <input type="radio" id="tails_radio" name="answer">
+            <input type="radio" class="radio_btn" id="tails_radio_choice" name="answer" value= 1>
           </div>
         </div>
-        <button type="button" id="get_data_button" class="btn btn-primary">Flip Coin</button>
-      </div>
+        <button type="button" id="flip_coin_btn">Flip Coin</button>
     </div>
 
 

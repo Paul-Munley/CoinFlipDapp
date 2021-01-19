@@ -1,29 +1,11 @@
-/* .coin_cointainer {
-    display: flex;
-} */
-
 .coin_images {
     display: flex;
+    flex-wrap: wrap;
 }
    
 .choice_divs {
     display: flex;
     flex-direction: column;
-}
-
-.choice_divs input {
     justify-content: center;
+    align-items: center;
 }
-
-/* .coin_images {
-    /* display: flex; */
-    /* flex: 0 0 auto; */
-
-/* .coin_container {
-    display: flex;
-}
-
-.choice_divs {
-    display: flex;
-    flex-direction: column;
-} */
