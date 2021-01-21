@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Coin Flip</title>
-    <link rel="shortcut icon" href="#">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"></script>
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="#">
     <script type="text/javascript" src="./web3.min.js"></script>
     <script type="text/javascript" src="./abi.js"></script>
     <script type="text/javascript" src="./main.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-
+    <link rel="stylesheet" href="./custom.css">
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid">
@@ -25,34 +24,38 @@
       </div>
     </div>
     <div class="container">
-      <div>
-        <h2>Add Balance To Contract</h2>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="add_balance_input" placeholder="ETH">
+      <div id="user_interact_container">
+        <div id="balance_container">
+          <div id="add_balance_container">
+            <h2>Add Balance To Contract</h2>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="add_balance_input" placeholder="ETH">
+            </div>
+              <button type="button" id="add_balance_button" class="btn btn-primary">Add To Balance</button>
+          </div>
+          <div>
+            <h2>Running Balance</h2>
+            <div>
+            Current Balance Amount: <span id="running_balance_output"></span> ETH
+            </div>
+            <button type="button" id="get_current_balance_btn" class="btn btn-primary">Get Current Balance</button>
+          </div>
         </div>
-          <button type="button" id="add_balance_button" class="btn btn-primary">Add To Balance</button>
-      </div>
-      <div>
-        <h2>Place Your Bet</h2>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="bet_input" placeholder="ETH" >
-        </div>
-        <button type="button" id="add_bet_button" class="btn btn-primary">Place Bet</button>
-      </div>
-      <div>
-        <h2>Get Current Bet</h2>
         <div>
-          Current Bet Amount: <span id="current_bet_output"></span> ETH
+          <h2>Place Your Bet</h2>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="bet_input" placeholder="ETH" >
+          </div>
+          <button type="button" id="add_bet_button" class="btn btn-primary">Place Bet</button>
         </div>
-        <br>
-        <button type="button" id="get_current_bet_btn" class="btn btn-primary">Current Bet</button>
-      </div>
-      <div>
-        <h2>Running Balance</h2>
         <div>
-        Current Balance Amount: <span id="running_balance_output"></span>
+          <h2>Get Current Bet</h2>
+          <div>
+            Current Bet Amount: <span id="current_bet_output"></span> ETH
+          </div>
+          <br>
+          <button type="button" id="get_current_bet_btn" class="btn btn-primary">Current Bet</button>
         </div>
-        <button type="button" id="get_current_balance_btn" class="btn btn-primary">Get Current Balance</button>
       </div>
         <h2>Flip The Coin!</h2>
         <div class="coin_images">
@@ -65,7 +68,7 @@
             <input type="radio" class="radio_btn" id="tails_radio_choice" name="answer" value= 1>
           </div>
         </div>
-        <button type="button" id="flip_coin_btn">Flip Coin</button>
+        <button type="button" id="flip_coin_btn" class="btn btn-primary">Flip Coin</button>
     </div>
 
 

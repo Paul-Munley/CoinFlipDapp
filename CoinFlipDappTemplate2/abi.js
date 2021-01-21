@@ -30,13 +30,7 @@ var abi = [
   {
     "inputs": [],
     "name": "addBalance",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [],
     "stateMutability": "payable",
     "type": "function",
     "payable": true
@@ -51,8 +45,9 @@ var abi = [
     ],
     "name": "setBet",
     "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    "stateMutability": "payable",
+    "type": "function",
+    "payable": true
   },
   {
     "inputs": [
@@ -65,9 +60,9 @@ var abi = [
     "name": "random",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "bool",
         "name": "",
-        "type": "uint256"
+        "type": "bool"
       }
     ],
     "stateMutability": "payable",

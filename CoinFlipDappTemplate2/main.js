@@ -5,7 +5,7 @@ var contractInstance;
 
 $(document).ready(function() {
     window.ethereum.enable().then(function(accounts){
-        contractInstance = new web3.eth.Contract(abi, "0xa1B33Df441b497510e7Aa0953Fd6049185b7673E", {from: accounts[0]});
+        contractInstance = new web3.eth.Contract(abi, "0x51b55d3214dF1FA9cD302399DfD992a408B2661F", {from: accounts[0]});
         console.log(contractInstance);
     });
     $("#add_bet_button").click(inputBetData);
@@ -17,13 +17,17 @@ $(document).ready(function() {
 
 function inputBetData() {
 
-    let bet = $("#bet_input").val().toString()
+    let bet = $("#bet_input").val();
+
+    // let betString = JSON.stringify(bet);
 
     let config = {
         value: web3.utils.toWei(bet, "ether")
     }
+    // console.log(config);
+    // console.log(config.value);
 
-    contractInstance.methods.setBet(bet).send(config)
+    contractInstance.methods.setBet(config.value).send()
     .on("transactionHash", function(hash){
         console.log(hash);
     })
@@ -58,8 +62,8 @@ function inputBalanceData() {
 };
 
 function fetchAndDisplayBet() {
-    contractInstance.methods.betAmount().call().then(function(res){
-        $("#current_bet_output").text(res);
+    contractInstance.methods.betAmount().call().then(function(result){
+        $("#current_bet_output").text(web3.utils.fromWei(result, 'ether'));
     });
 };
 
@@ -74,16 +78,17 @@ function fetchAndDisplayBalance() {
 async function pickChoiceAndFlipCoin() {
     // const radioButtons = document.querySelectorAll('input[name="answer"]');
     // let selectedValue = $(".radio_btn").val();
-    const outcome = 0;
+    let bet = $("#bet_input").val();
+
     let selectedValue = $('input[name=answer]:checked').val(); 
     await contractInstance.methods.random(selectedValue).send();
     await contractInstance.methods.random(selectedValue).call()
-    .then(function(result) {
-        if(result == 0) {
-            console.log("Congrats you won!");
+    .then(function(success) {
+        if(success == true) {
+            alert("Congrats you won " + bet + " Ether!");
         }
         else {
-            console.log("Sorry you lost, please try again.");
+            alert("Sorry you lost " + bet + " Ether. Please try again.");
         }
     });
 };
