@@ -1,0 +1,42 @@
+/* .coin_cointainer {
+    display: flex;
+} */
+
+/* NOTE: I think you need to download bootstrap to project in order to make edits to the grid setup. Work on this next. */
+div.row {
+    align-items: center;
+}
+
+.col {
+    width: 360px;
+}
+
+#flip_coin_title {
+    justify-content: center;
+}
+
+.coin_images {
+    display: flex;
+}
+   
+.choice_divs {
+    display: flex;
+    flex-direction: column;
+}
+
+.choice_divs input {
+    justify-content: center;
+}
+
+/* .coin_images {
+    /* display: flex; */
+    /* flex: 0 0 auto; */
+
+/* .coin_container {
+    display: flex;
+}
+
+.choice_divs {
+    display: flex;
+    flex-direction: column;
+} */

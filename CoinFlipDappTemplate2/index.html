@@ -14,7 +14,7 @@
     <script type="text/javascript" src="./main.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./custom.css">
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid">
@@ -24,40 +24,41 @@
       </div>
     </div>
     <div class="container">
-      <div id="user_interact_container">
-        <div id="balance_container">
-          <div id="add_balance_container">
-            <h2>Add Balance To Contract</h2>
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" id="add_balance_input" placeholder="ETH">
-            </div>
-              <button type="button" id="add_balance_button" class="btn btn-primary">Add To Balance</button>
+      <div class="row">
+        <div class="col">
+          <h2>Add Balance To Contract</h2>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="add_balance_input" placeholder="ETH">
           </div>
-          <div>
-            <h2>Running Balance</h2>
-            <div>
-            Current Balance Amount: <span id="running_balance_output"></span> ETH
-            </div>
-            <button type="button" id="get_current_balance_btn" class="btn btn-primary">Get Current Balance</button>
-          </div>
+          <button type="button" id="add_balance_button" class="btn btn-primary">Add To Balance</button>
         </div>
-        <div>
+        <div class="col">
+          <h2>Running Balance</h2>
+          <div>
+            Current Balance Amount: <span id="running_balance_output"></span> ETH
+          </div>
+          <button type="button" id="get_current_balance_btn" class="btn btn-primary">Get Current Balance</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <h2>Place Your Bet</h2>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="bet_input" placeholder="ETH" >
+          <input type="text" class="form-control" id="bet_input" placeholder="ETH" >
           </div>
           <button type="button" id="add_bet_button" class="btn btn-primary">Place Bet</button>
         </div>
-        <div>
+        <div class="col">
           <h2>Get Current Bet</h2>
           <div>
             Current Bet Amount: <span id="current_bet_output"></span> ETH
           </div>
-          <br>
           <button type="button" id="get_current_bet_btn" class="btn btn-primary">Current Bet</button>
         </div>
       </div>
+      <div class="row" id="flip_coin_title">
         <h2>Flip The Coin!</h2>
+      </div>
         <div class="coin_images">
           <div class="choice_divs">
             <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Standard-Back-1_480x480.jpg?v=1526294144">
