@@ -17,20 +17,21 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Coin Flip Game</h1>
-        <p class="lead">Flip a coin to make some coin!</p>
+    <div class="container-fluid px-0" id="main-container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="jumbo">
+          <h1 class="display-4">Coin Flip Game</h1>
+          <p class="lead">Flip a coin to make some coin!</p>
+        </div>
       </div>
-    </div>
-    <div class="container">
       <div class="row">
         <div class="col">
           <h2>Add Balance To Contract</h2>
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="add_balance_input" placeholder="ETH">
+          
+          <button type="button" id="add_balance_button" class="btn btn-primary btn-sm">Add To Balance</button>
           </div>
-          <button type="button" id="add_balance_button" class="btn btn-primary">Add To Balance</button>
         </div>
         <div class="col">
           <h2>Running Balance</h2>
@@ -59,19 +60,42 @@
       <div class="row" id="flip_coin_title">
         <h2>Flip The Coin!</h2>
       </div>
-        <div class="coin_images">
-          <div class="choice_divs">
-            <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Standard-Back-1_480x480.jpg?v=1526294144">
-            <input type="radio" class="radio_btn" id="heads_radio_choice" name="answer" value= 0>
-          </div>
-          <div class="choice_divs">
-            <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Front-1_45d663e2-881e-4980-b87e-634e7439ca82_480x480.jpg?v=1526294145">
-            <input type="radio" class="radio_btn" id="tails_radio_choice" name="answer" value= 1>
-          </div>
+      <div class="coin_images">
+        <div class="choice_divs">
+          <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Standard-Back-1_480x480.jpg?v=1526294144">
+          <input type="radio" class="radio_btn" id="heads_radio_choice" name="answer" value= 0>
         </div>
-        <button type="button" id="flip_coin_btn" class="btn btn-primary">Flip Coin</button>
+        <div class="choice_divs">
+          <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Front-1_45d663e2-881e-4980-b87e-634e7439ca82_480x480.jpg?v=1526294145">
+          <input type="radio" class="radio_btn" id="tails_radio_choice" name="answer" value= 1>
+        </div>
+      </div>
+      <button type="button" id="flip_coin_btn" class="btn btn-primary">Flip Coin</button>
     </div>
+    <footer class="text-center text-lg-start" style="background-color: rgba(0, 0, 0, 0.2)">
+      <p>2021 Coin Flip Game<br>Created By: Paul Munley</p>
+    </footer>
+
 
 
   </body>
 </html>
+
+<!-- Note: Adding seperate row for radio btns. May be better choice but am still trying to figure this out. Saving this for future just in case -->
+<!-- <div class="row" id="coin_row">
+  <div class="col">
+    <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Standard-Back-1_480x480.jpg?v=1526294144">
+  </div>
+  <div class="col">
+      <img src="https://cdn.shopify.com/s/files/1/2685/8754/products/Ethereum-Front-1_45d663e2-881e-4980-b87e-634e7439ca82_480x480.jpg?v=1526294145">
+  </div>
+</div>
+<div class="row" id="radio_row">
+  <div class="col" id="radio_btn_1">
+    <input type="radio" class="radio_btn" id="heads_radio_choice" name="answer" value= 0>
+  </div>
+  <div class="col" id="radio_btn_2">
+    <input type="radio" class="radio_btn" id="tails_radio_choice" name="answer" value= 1>
+  </div>
+  <button type="button" id="flip_coin_btn" class="btn btn-primary">Flip Coin</button>
+</div> -->
