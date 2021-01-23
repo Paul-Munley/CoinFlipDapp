@@ -3,7 +3,7 @@
 } */
 
 /* NOTE: I think you need to download bootstrap to project in order to make edits to the grid setup. Work on this next. */
-.jumbo {
+.jumbo_text {
     width: max-content;
     margin-left: 8%;
 }
@@ -20,6 +20,7 @@ div.row {
 
 #flip_coin_title {
     justify-content: center;
+    margin: 2% 0 2% 0;
 }
 
 .coin_images {
@@ -39,6 +40,15 @@ div.row {
 
 #coin_images_container {
     display: inline-block;
+    justify-content: center;
+}
+
+.flip_coin_btn_div {
+    text-align: center;
+    margin: 2% 0 2% 0;
+}
+
+#flip_coin_btn {
     justify-content: center;
 }
 
