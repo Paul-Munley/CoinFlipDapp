@@ -18,22 +18,21 @@
   </head>
   <body>
     <div class="container-fluid px-0" id="main-container">
-      <div class="jumbotron jumbotron-fluid" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="jumbotron jumbotron-fluid" id="jumbotron_container" style="background-color: rgba(0, 0, 0, 0.2)">
         <div class="jumbo_text">
           <h1 class="display-4">Coin Flip Game</h1>
           <p class="lead">Flip a coin to make some coin!</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="row m-0" id="balance_bet_rows">
+        <div class="col-4">
           <h2>Add Balance To Contract</h2>
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="add_balance_input" placeholder="ETH">
-          
-          <button type="button" id="add_balance_button" class="btn btn-primary btn-sm">Add To Balance</button>
           </div>
+          <button type="button" id="add_balance_button" class="btn btn-primary btn-sm">Add To Balance</button>
         </div>
-        <div class="col">
+        <div class="col-4">
           <h2>Running Balance</h2>
           <div>
             Current Balance Amount: <span id="running_balance_output"></span> ETH
@@ -41,15 +40,15 @@
           <button type="button" id="get_current_balance_btn" class="btn btn-primary">Get Current Balance</button>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="row m-0" id="balance_bet_rows">
+        <div class="col-4">
           <h2>Place Your Bet</h2>
           <div class="input-group mb-3">
           <input type="text" class="form-control" id="bet_input" placeholder="ETH" >
           </div>
           <button type="button" id="add_bet_button" class="btn btn-primary">Place Bet</button>
         </div>
-        <div class="col">
+        <div class="col-4">
           <h2>Get Current Bet</h2>
           <div>
             Current Bet Amount: <span id="current_bet_output"></span> ETH
