@@ -5,7 +5,7 @@ var contractInstance;
 
 $(document).ready(function() {
     window.ethereum.enable().then(function(accounts){
-        contractInstance = new web3.eth.Contract(abi, "0xC8f3186868ccb5E0261caB604Fe345AB182efD9c", {from: accounts[0]});
+        contractInstance = new web3.eth.Contract(abi, "0xC39fA8b5Aa68b983f752264Bba6a87567778E20B", {from: accounts[0]});
         console.log(contractInstance);
     });
     $("#add_bet_button").click(inputBetData);
@@ -63,7 +63,7 @@ function inputBalanceData() {
 
 function fetchAndDisplayBet() {
     contractInstance.methods.betAmount().call().then(function(result){
-        $("#current_bet_output").text(web3.utils.fromWei(result, 'ether'));
+        $("#current_bet_output").text("" + web3.utils.fromWei(result, 'ether') + " ETH");
     });
 };
 
