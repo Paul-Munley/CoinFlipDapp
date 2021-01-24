@@ -1,3 +1,13 @@
+html {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 576px){
+    h2 {
+        font-size: 1.50rem;
+    }
+}
+
 /* NOTE: I think you need to download bootstrap to project in order to make edits to the grid setup. Work on this next. */
 .jumbo_text {
     width: max-content;
@@ -10,6 +20,7 @@ div.row {
 }
 
 #balance_bet_rows {
+    margin-bottom: 2%;
     justify-content: space-evenly;
 
 }
@@ -52,30 +63,3 @@ footer p {
     margin-bottom: 0;
     padding: 2% 0 2% 0;
 }
-
-/* .text-center{
-    align-items: center;
-} */
-
-/*
-.choice_divs {
-    display: flex;
-    flex-direction: column;
-}
-
-.choice_divs input {
-    justify-content: center;
-} */
-
-/* .coin_images {
-    /* display: flex; */
-    /* flex: 0 0 auto; */
-
-/* .coin_container {
-    display: flex;
-}
-
-.choice_divs {
-    display: flex;
-    flex-direction: column;
-} */

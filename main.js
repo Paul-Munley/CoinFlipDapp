@@ -70,7 +70,7 @@ function fetchAndDisplayBet() {
 function fetchAndDisplayBalance() {
 
     contractInstance.methods.contractBalance().call().then(function(result) {
-        $("#running_balance_output").text(web3.utils.fromWei(result, 'ether'));
+        $("#running_balance_output").text("" + web3.utils.fromWei(result, 'ether') + " ETH");
     });
 };
 
