@@ -2,7 +2,7 @@ pragma solidity 0.7.6;
 
 contract CoinFlip {
 
-    mapping (address => uint) balance;
+    // mapping (address => uint) balance;
 
 	uint256 public contractBalance;
     uint256 public betAmount;
@@ -24,6 +24,10 @@ contract CoinFlip {
 	function addBalance() public payable {
 		// require(msg.value >=  minimumAddBalanceAmnt); //**CHECK NOTE BELOW**
 		contractBalance += msg.value;
+	}
+
+	function withdrawBalance() public payable {
+		msg.sender.send(contractBalance);
 	}
 
 	//Add funds from contractBalance to betAmount variable (aka set betAmount)

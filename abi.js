@@ -36,6 +36,14 @@ var abi = [
     "payable": true
   },
   {
+    "inputs": [],
+    "name": "withdrawBalance",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function",
+    "payable": true
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",

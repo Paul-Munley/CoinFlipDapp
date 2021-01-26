@@ -5,13 +5,14 @@ var contractInstance;
 
 $(document).ready(function() {
     window.ethereum.enable().then(function(accounts){
-        contractInstance = new web3.eth.Contract(abi, "0xC39fA8b5Aa68b983f752264Bba6a87567778E20B", {from: accounts[0]});
+        contractInstance = new web3.eth.Contract(abi, "0x908f3F2eBAaf627CA23f16a9f013e4A4064cDDB6", {from: accounts[0]});
         console.log(contractInstance);
     });
     $("#add_bet_button").click(inputBetData);
     $("#get_current_bet_btn").click(fetchAndDisplayBet);
     $("#flip_coin_btn").click(pickChoiceAndFlipCoin);
     $("#add_balance_button").click(inputBalanceData);
+    $("#withdraw_all_button").click(withdrawBalance);
     $("#get_current_balance_btn").click(fetchAndDisplayBalance);
 });
 
@@ -42,7 +43,9 @@ function inputBetData() {
 
 function inputBalanceData() {
 
-    let balanceAmount = $("#add_balance_input").val().toString();
+    let balanceAmount = $("#add_balance_input").val();
+
+    // console.log(balanceAmount);
 
     let config = {
         value: web3.utils.toWei(balanceAmount, "ether")
@@ -59,6 +62,19 @@ function inputBalanceData() {
         console.log(receipt);
     })
 
+};
+
+function withdrawBalance() {
+    contractInstance.methods.withdrawBalance().send();
+    // .on("transactionHash", function(hash){
+    //     console.log(hash);
+    // })
+    // .on("confirmation", function(confirmationNr){
+    //     console.log(confirmationNr);
+    // })
+    // .on("receipt", function(receipt){
+    //     console.log(receipt);
+    // })
 };
 
 function fetchAndDisplayBet() {

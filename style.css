@@ -1,11 +1,6 @@
-html {
+html, body {
     font-size: 1rem;
-}
-
-@media screen and (max-width: 576px){
-    h2 {
-        font-size: 1.50rem;
-    }
+    overflow-x:hidden;
 }
 
 /* NOTE: I think you need to download bootstrap to project in order to make edits to the grid setup. Work on this next. */
@@ -21,33 +16,37 @@ div.row {
 
 #balance_bet_rows {
     margin-bottom: 2%;
+    /* margin: 0 auto 2% auto; */
     justify-content: space-evenly;
 
 }
 
+/* #add_balance_input {
+    padding: 0;
+}
+
+#add_bet_input {
+    padding: 0;
+} */
+
 #flip_coin_title {
     justify-content: center;
-    margin: 2% 0 2% 0;
+    margin: 4% 0 3% 0;
 }
 
 .coin_images {
     display: flex;
-    /* justify-content: center; */
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .choice_divs {
-    display: inline-block;
+    display: inline-block; 
 }
 
 .radio_btn {
     margin: auto;
     display: block;
-}
-
-#coin_images_container {
-    display: inline-block;
-    justify-content: center;
 }
 
 .flip_coin_btn_div {
@@ -63,3 +62,59 @@ footer p {
     margin-bottom: 0;
     padding: 2% 0 2% 0;
 }
+
+@media only screen and (max-width: 576px){
+    h2 {
+        font-size: 1.50rem;
+    }
+    .col-5 {
+        margin-bottom: 6%;
+    }
+
+    #get_current_bet_col {
+        margin-bottom: 4%;
+    }
+
+    #flip_coin_title {
+        margin: 4% 0 0 0;
+    }
+
+    #flip_coin_btn {
+        margin: 8% 0 6% 0;
+    }
+    
+}
+
+@media only screen and (max-width: 408px) {
+    .jumbo_text {
+        width: 80%;
+        height: auto;
+        text-align: center;
+    }
+}
+/* Media Query for Galaxy Fold when folded in portrait mode */
+@media only screen and (max-width: 290px){
+    #flip_coin_title {
+        text-align: center;
+    }
+
+    .choice_divs img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* @media only screen and (max-width: 432px) {
+    #balance_bet_rows {
+        display: flex!important;
+        flex-wrap: wrap!important;
+    }
+
+    #bet_cols {
+        display: flex;
+    }
+
+    #balance_cols {
+        display: flex;
+    }
+} */
