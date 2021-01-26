@@ -6,28 +6,20 @@ contract CoinFlip {
 
 	uint256 public contractBalance;
     uint256 public betAmount;
-	// uint256 minimumAddBalanceAmnt; //**CHECK NOTE BELOW**
-    
-	//Constructor to intiailize minimumAddBalanceAmnt variable to 1.. **CHECK NOTE BELOW**
-	// constructor() {
-	// 	minimumAddBalanceAmnt = 1;
-	// }
 
-	/*// uint256 minimumBet; **CHECK NOTE BELOW**
-
-	//Constructor to intiailize minimumBet variable to 1
 	constructor() {
-		minimumBet = 1;
-	}*/
+		contractBalance = 0;
+	}
 
 	//Add funds to contract balance (aka set contractBalance)
 	function addBalance() public payable {
-		// require(msg.value >=  minimumAddBalanceAmnt); //**CHECK NOTE BELOW**
+		// require(msg.value >=  minimumAddBalanceAmnt);
 		contractBalance += msg.value;
 	}
 
 	function withdrawBalance() public payable {
-		msg.sender.send(contractBalance);
+		msg.sender.transfer(contractBalance);
+		contractBalance = 0;
 	}
 
 	//Add funds from contractBalance to betAmount variable (aka set betAmount)

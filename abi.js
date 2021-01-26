@@ -1,6 +1,11 @@
 var abi = [
   {
     "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
     "name": "betAmount",
     "outputs": [
       {

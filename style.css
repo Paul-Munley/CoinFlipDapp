@@ -16,18 +16,9 @@ div.row {
 
 #balance_bet_rows {
     margin-bottom: 2%;
-    /* margin: 0 auto 2% auto; */
     justify-content: space-evenly;
 
 }
-
-/* #add_balance_input {
-    padding: 0;
-}
-
-#add_bet_input {
-    padding: 0;
-} */
 
 #flip_coin_title {
     justify-content: center;
@@ -85,6 +76,12 @@ footer p {
     
 }
 
+@media only screen and (max-width: 613px) {
+    #withdraw_all_button {
+        margin-top: 2%;
+    }
+}
+
 @media only screen and (max-width: 408px) {
     .jumbo_text {
         width: 80%;
@@ -103,18 +100,3 @@ footer p {
         height: auto;
     }
 }
-
-/* @media only screen and (max-width: 432px) {
-    #balance_bet_rows {
-        display: flex!important;
-        flex-wrap: wrap!important;
-    }
-
-    #bet_cols {
-        display: flex;
-    }
-
-    #balance_cols {
-        display: flex;
-    }
-} */

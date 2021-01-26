@@ -1,11 +1,9 @@
 var web3 = new Web3(Web3.givenProvider);
 var contractInstance;
-//let bet = $("#bet_input");
-//let stringBet;
 
 $(document).ready(function() {
     window.ethereum.enable().then(function(accounts){
-        contractInstance = new web3.eth.Contract(abi, "0x908f3F2eBAaf627CA23f16a9f013e4A4064cDDB6", {from: accounts[0]});
+        contractInstance = new web3.eth.Contract(abi, "0x145dec4Cb2830B5cB24C986e23504d3337E656b6", {from: accounts[0]});
         console.log(contractInstance);
     });
     $("#add_bet_button").click(inputBetData);
@@ -19,8 +17,6 @@ $(document).ready(function() {
 function inputBetData() {
 
     let bet = $("#bet_input").val();
-
-    // let betString = JSON.stringify(bet);
 
     let config = {
         value: web3.utils.toWei(bet, "ether")
@@ -90,10 +86,8 @@ function fetchAndDisplayBalance() {
     });
 };
 
-//NOTE: need to fix the event listener to alert user
 async function pickChoiceAndFlipCoin() {
-    // const radioButtons = document.querySelectorAll('input[name="answer"]');
-    // let selectedValue = $(".radio_btn").val();
+
     let bet = $("#bet_input").val();
 
     let selectedValue = $('input[name=answer]:checked').val(); 
