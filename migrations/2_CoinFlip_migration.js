@@ -1,4 +1,4 @@
-const CoinFlip = artifacts.require("CoinFlip");
+const CoinFlip = artifacts.require("./CoinFlip.sol");
 
 module.exports = function (deployer) {
   deployer.deploy(CoinFlip);
