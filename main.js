@@ -3,7 +3,7 @@ var contractInstance;
 
 $(document).ready(function() {
     window.ethereum.enable().then(function(accounts){
-        contractInstance = new web3.eth.Contract(abi, "0x145dec4Cb2830B5cB24C986e23504d3337E656b6", {from: accounts[0]});
+        contractInstance = new web3.eth.Contract(abi, "0x8047C78D2b170C06d66E455C4E6f64A591A58ecC", {from: accounts[0]});
         console.log(contractInstance);
     });
     $("#add_bet_button").click(inputBetData);
@@ -14,28 +14,40 @@ $(document).ready(function() {
     $("#get_current_balance_btn").click(fetchAndDisplayBalance);
 });
 
-function inputBetData() {
+// function inputBetData() {
 
-    let bet = $("#bet_input").val();
+//     let bet = $("#bet_input").val();
 
-    let config = {
-        value: web3.utils.toWei(bet, "ether")
-    }
-    // console.log(config);
-    // console.log(config.value);
+//     let config = {
+//         value: web3.utils.toWei(bet, "ether")
+//     }
+//     // console.log(config);
+//     // console.log(config.value);
 
-    contractInstance.methods.setBet(config.value).send()
-    .on("transactionHash", function(hash){
-        console.log(hash);
-    })
-    .on("confirmation", function(confirmationNr){
-        console.log(confirmationNr);
-    })
-    .on("receipt", function(receipt){
-        console.log(receipt);
-    })
+//     contractInstance.methods.setBet(config.value).send()
+//     .on("transactionHash", function(hash){
+//         console.log(hash);
+//     })
+//     .on("confirmation", function(confirmationNr){
+//         console.log(confirmationNr);
+//     })
+//     .on("receipt", function(receipt){
+//         console.log(receipt);
+//     })
 
-};
+// };
+
+// function placeBetAndRoll() {
+
+//     let bet = $("#bet_input").val();
+
+//     let config = {
+//         value: web3.utils.toWei(bet, "ether")
+//     }
+
+//     contractInstance.methods.setBet(config.value).send()
+
+// }
 
 function inputBalanceData() {
 
@@ -102,5 +114,7 @@ async function pickChoiceAndFlipCoin() {
         }
     });
 };
+
+
 
 
