@@ -6,12 +6,13 @@ contract CoinFlip is usingProvable {
 
 	struct Bet {
 		address player;
-		uint betAmount;
+		uint256 betAmount;
+		uint256 choice;
 		bool result;
 	} 
 
 	mapping (bytes32 => Bet) betting; //queryId to Bet struct info
-	mapping (address => bool) waiting; //mapping to see if msg.sender is waiting
+	mapping (address => bool) waiting; //mapping to see if msg.sender is waiting for query response
 
 	uint256 constant NUM_RANDOM_BYTES_REQUESTED = 1;
 	// uint256 public latestNumber;
@@ -31,23 +32,32 @@ contract CoinFlip is usingProvable {
 	event coinFlipResults(address bettor, bytes32 _queryId, uint256 wonAmount);
 
 	function __callback(bytes32 _queryId, string memory _result, uint256 _choice, bytes memory _proof) public {
-		// require(msg.sender == provable_cbAddress());
+		require(msg.sender == provable_cbAddress());
 
-		uint256 randomNumber = uint256(keccak256(abi.encodePacked(_result))) % 2;
-		if(_choice == randomNumber) {
-		    uint256 wonAmount = betting[_queryId].betAmount * 2; //setting winnings to variable in order to emit event winnings
-		    wonAmount += contractBalance; //returning betAmount x2 to contractBalance for winning
-		    betting[_queryId].result = true; //winning coin flip will have result = true
-		}
-		else {
-		    betting[_queryId].betAmount = 0; //will reset bet amount for that struct
-		    betting[_queryId].result = false; //losing coin flip will have result = false
-		}
+		uint256 randomNumber = uint256(keccak256(abi.encodePacked(_result))) % 2; //will take response from oracle and turn it into a 0 or 1
+		confirmResult(randomNumber, _queryId); //calls confirmResult funcion with arguments passed from this function
+
 		emit generatedRandomNumber(randomNumber);
 // 		emit coinFlipResults(msg.sender, _queryId, wonAmount);
 	}
+
+	function confirmResult(uint randomNumber, bytes32 _queryId) {
+		if(randomNumber == betting[_queryId].choice) {
+			contractBalance += betting[_queryId].betAmount * 2; //winnings payout
+			delete(betting[_queryId].betAmount) //reset betAmount to 0
+			betting[_queryId].result = true; //result will be true if won
+		}
+		else {
+			delete(betting[_queryId].betAmount); //reset betAmount to 0
+			betting[_queryId].result = false; //result will be false if lost
+		}
+		delete(betting[_queryId]); //reset query id to default value for next bet
+		waiting[msg.sender] = false; //will set waiting status to false
+
+	}
+
     //place bet and query provable oracle from provable to simulate coin flipping.
-	function update(uint256 amount) payable public {
+	function update(uint256 amount, uint _choice) payable public {
 	    // require(amount)
 		uint256 QUERY_EXECUTION_DELAY = 0;
 		uint256 GAS_FOR_CALLBACK = 200000;
@@ -58,7 +68,8 @@ contract CoinFlip is usingProvable {
 			GAS_FOR_CALLBACK
 		); /***COMMENTED OUT TO TEST ORACLE FUNCTION WITHOUT HAVING TO CONNECT TO ORACLE EVERYTIME. WILL UNCOMMENT WHEN CONTRACT IS READY TO CONNECT TO ORACLE****/
 		contractBalance -= amount;
-		betting[queryId] = Bet({player: msg.sender, betAmount: amount, result: false}); //assigning a queryId & struct to the betting mapping and initializing the Bet struct with pertinent struct info
+		betting[queryId] = Bet({player: msg.sender, betAmount: amount, choice: _choice}); //assigning a queryId & struct to the betting mapping and initializing the Bet struct with pertinent struct info
+		waiting[msg.sender] = true;
 		emit betPlaced(msg.sender, queryId, amount); //emit betPlaced event with pertinent info
 	}
 
@@ -68,6 +79,10 @@ contract CoinFlip is usingProvable {
 	// 	__callback(queryId, "1", bytes32(keccak256(abi.encodePacked(msg.sender))));
 	// 	return queryId;
 	// }
+
+	function setBet(uint256 amount) public payable {
+		
+	}
 
 	//Add funds to contract balance (aka set contractBalance)
 	function addBalance() public payable {

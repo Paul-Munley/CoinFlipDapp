@@ -37,17 +37,25 @@ $(document).ready(function() {
 
 // };
 
-// function placeBetAndRoll() {
+//PART THAT YOU ARE CURRENTLY ON
+async function placeBetAndStartQuery() {
 
-//     let bet = $("#bet_input").val();
+    let bet = $("#bet_input").val();
 
-//     let config = {
-//         value: web3.utils.toWei(bet, "ether")
-//     }
+    //Part to add config to conver bet input to convert to wei in contract
 
-//     contractInstance.methods.setBet(config.value).send()
-
-// }
+    let selectedValue = $('input[name=answer]:checked').val(); 
+    await contractInstance.methods.update(bet, selectedValue).send();
+    await contractInstance.methods.random(selectedValue).call()
+    .then(function(success) {
+        if(success == true) {
+            alert("Congrats you won " + bet + " Ether!");
+        }
+        else {
+            alert("Sorry you lost " + bet + " Ether. Please try again.");
+        }
+    });
+};
 
 function inputBalanceData() {
 
