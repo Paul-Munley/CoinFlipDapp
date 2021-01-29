@@ -42,7 +42,9 @@ async function placeBetAndStartQuery() {
 
     let bet = $("#bet_input").val();
 
-    //Part to add config to conver bet input to convert to wei in contract
+    config = {
+        value: web3.utils.toWei(bet, "ether")
+    }
 
     let selectedValue = $('input[name=answer]:checked').val(); 
     await contractInstance.methods.update(bet, selectedValue).send();
